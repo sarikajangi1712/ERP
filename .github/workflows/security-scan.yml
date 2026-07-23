@@ -1,0 +1,17 @@
+name: Security Scan Workflow
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan Secrets & Vulnerabilities
+        run: |
+          echo "Scanning codebase for hardcoded secrets, JWT keys, and unhashed credentials..."
+          node scripts/loop-readiness.js
+

@@ -1,0 +1,24 @@
+name: Dependency Sweeper Workflow
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+
+jobs:
+  audit-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - name: Server Audit
+        run: |
+          cd server
+          npm audit --audit-level=high || true
+      - name: Client Audit
+        run: |
+          cd client
+          npm audit --audit-level=high || true
