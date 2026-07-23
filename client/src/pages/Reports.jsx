@@ -73,10 +73,10 @@ export const Reports = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+      <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3 overflow-x-auto">
         <button
           onClick={() => setActiveTab('sales')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
             activeTab === 'sales' ? 'bg-blue-600 text-white shadow-md' : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
           }`}
         >
@@ -84,7 +84,7 @@ export const Reports = () => {
         </button>
         <button
           onClick={() => setActiveTab('inventory')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
             activeTab === 'inventory' ? 'bg-blue-600 text-white shadow-md' : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
           }`}
         >
@@ -92,7 +92,7 @@ export const Reports = () => {
         </button>
         <button
           onClick={() => setActiveTab('gst')}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
             activeTab === 'gst' ? 'bg-blue-600 text-white shadow-md' : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
           }`}
         >
@@ -140,7 +140,7 @@ export const Reports = () => {
       {activeTab === 'gst' && (
         isGstLoading ? <Card><Skeleton className="h-64" /></Card> : (
           <div className="space-y-4">
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <Card>
                 <span className="text-xs text-slate-400 font-semibold uppercase">Total Invoiced Subtotal</span>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mt-1">₹{Number(gstSummary.totalSubtotal || 0).toLocaleString()}</h3>

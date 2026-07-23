@@ -5,6 +5,7 @@ import { DashboardLayout } from '../layouts/DashboardLayout';
 import { ProtectedRoute } from './ProtectedRoute';
 import { RoleGuard } from './RoleGuard';
 
+import { LandingPage } from '../pages/LandingPage';
 import { Login } from '../pages/Login';
 import { Unauthorized } from '../pages/Unauthorized';
 import { NotFound } from '../pages/NotFound';
@@ -25,6 +26,9 @@ import { Users } from '../pages/Users';
 export const AppRoutes = () => {
   return (
     <Routes>
+      {/* Public Landing Page */}
+      <Route path="/" element={<LandingPage />} />
+
       {/* Public Auth Routes */}
       <Route element={<AuthLayout />}>
         <Route path="/login" element={<Login />} />
@@ -33,7 +37,6 @@ export const AppRoutes = () => {
       {/* Protected Application Routes */}
       <Route element={<ProtectedRoute />}>
         <Route element={<DashboardLayout />}>
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/dashboard" element={<Dashboard />} />
           
           <Route path="/customers" element={<Customers />} />

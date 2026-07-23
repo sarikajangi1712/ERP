@@ -101,7 +101,7 @@ export const Users = () => {
           <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">User Management</h1>
           <p className="text-xs text-slate-500 mt-1">Create user accounts, set role permissions (`ADMIN`, `SALES`, `WAREHOUSE`, `ACCOUNTS`) and manage access.</p>
         </div>
-        <Button variant="primary" onClick={() => setIsModalOpen(true)} icon={Plus}>Add New User</Button>
+        <Button variant="primary" onClick={() => setIsModalOpen(true)} icon={Plus} className="w-full sm:w-auto">Add New User</Button>
       </div>
 
       {/* Users Table */}

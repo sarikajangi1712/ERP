@@ -138,9 +138,9 @@ export const Inventory = () => {
           <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Warehouse Inventory Control</h1>
           <p className="text-xs text-slate-500 mt-1">Multi-depot stock management, audit trails & inter-warehouse transfers</p>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" onClick={() => setIsTransferModalOpen(true)} icon={ArrowRightLeft}>Transfer Stock</Button>
-          <Button variant="primary" onClick={() => setIsAdjustModalOpen(true)} icon={ArrowUpRight}>Adjust Stock</Button>
+        <div className="flex items-center gap-2 w-full sm:w-auto">
+          <Button variant="outline" onClick={() => setIsTransferModalOpen(true)} icon={ArrowRightLeft} className="flex-1 sm:flex-initial">Transfer Stock</Button>
+          <Button variant="primary" onClick={() => setIsAdjustModalOpen(true)} icon={ArrowUpRight} className="flex-1 sm:flex-initial">Adjust Stock</Button>
         </div>
       </div>
 

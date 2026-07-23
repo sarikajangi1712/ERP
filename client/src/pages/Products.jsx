@@ -203,7 +203,7 @@ export const Products = () => {
       {/* Create Product Modal */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Create New Product SKU">
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Input label="Product SKU Code" required value={formData.sku} onChange={(e) => setFormData({ ...formData, sku: e.target.value })} placeholder="e.g. SKU-ELEC-103" />
             <Input label="Barcode Number" required value={formData.barcode} onChange={(e) => setFormData({ ...formData, barcode: e.target.value })} placeholder="e.g. 8901234567894" />
           </div>
@@ -222,7 +222,7 @@ export const Products = () => {
               ))}
             </select>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Input label="Purchase Price (₹)" type="number" required value={formData.purchasePrice} onChange={(e) => setFormData({ ...formData, purchasePrice: e.target.value })} />
             <Input label="Selling Price (₹)" type="number" required value={formData.sellingPrice} onChange={(e) => setFormData({ ...formData, sellingPrice: e.target.value })} />
             <Input label="GST Tax Rate (%)" type="number" value={formData.gstRate} onChange={(e) => setFormData({ ...formData, gstRate: e.target.value })} />

@@ -74,12 +74,12 @@ export const CRMFollowups = () => {
                   <p className="italic">"{f.note}"</p>
                 </div>
 
-                <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-slate-400">
                   <span className="flex items-center gap-1 font-semibold">
                     <Calendar className="w-3.5 h-3.5 text-amber-500" />
                     Due: {new Date(f.nextFollowUp).toLocaleDateString()}
                   </span>
-                  <Button size="sm" variant="success" icon={CheckCircle2}>Complete Call</Button>
+                  <Button size="sm" variant="success" icon={CheckCircle2} className="w-full sm:w-auto">Complete Call</Button>
                 </div>
               </Card>
             );

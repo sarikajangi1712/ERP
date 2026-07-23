@@ -108,12 +108,12 @@ export const Customers = () => {
       {/* Header & Controls */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Customer CRM Directory</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">Customer CRM Directory</h1>
           <p className="text-xs text-slate-500 mt-1">Manage wholesale buyers, lead stages, credit limits & accounts</p>
         </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" onClick={handleExportCSV} icon={Download}>Export CSV</Button>
-          <Button variant="primary" onClick={() => setIsModalOpen(true)} icon={Plus}>Add Customer</Button>
+        <div className="flex items-center gap-2 w-full sm:w-auto">
+          <Button variant="outline" onClick={handleExportCSV} icon={Download} className="flex-1 sm:flex-initial">Export CSV</Button>
+          <Button variant="primary" onClick={() => setIsModalOpen(true)} icon={Plus} className="flex-1 sm:flex-initial">Add Customer</Button>
         </div>
       </div>
 
@@ -187,7 +187,7 @@ export const Customers = () => {
             <Input label="Credit Limit (₹)" type="number" value={formData.creditLimit} onChange={(e) => setFormData({ ...formData, creditLimit: e.target.value })} />
           </div>
           <Input label="Billing Address" required value={formData.address} onChange={(e) => setFormData({ ...formData, address: e.target.value })} />
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <Input label="City" required value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} />
             <Input label="State" required value={formData.state} onChange={(e) => setFormData({ ...formData, state: e.target.value })} />
             <Input label="Pincode" required value={formData.pincode} onChange={(e) => setFormData({ ...formData, pincode: e.target.value })} />

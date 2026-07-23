@@ -13,10 +13,11 @@ import {
   ShieldAlert,
   Settings,
   Boxes,
+  X
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
-export const Sidebar = () => {
+export const Sidebar = ({ isMobileOpen, onCloseMobile }) => {
   const { user } = useAuth();
   const role = user?.role || 'SALES';
 
@@ -34,17 +35,27 @@ export const Sidebar = () => {
     { label: 'Settings', path: '/settings', icon: Settings, roles: ['ADMIN', 'SALES', 'WAREHOUSE', 'ACCOUNTS'] },
   ];
 
-  return (
-    <aside className="w-64 bg-white dark:bg-[#111827] border-r border-slate-200 dark:border-slate-800 flex flex-col h-screen sticky top-0 shrink-0 z-30">
+  const sidebarContent = (
+    <div className="flex flex-col h-full bg-white dark:bg-[#111827] border-r border-slate-200 dark:border-slate-800 w-64 shadow-xl lg:shadow-none">
       {/* Brand Header */}
-      <div className="p-5 flex items-center gap-3 border-b border-slate-200 dark:border-slate-800">
-        <div className="p-2.5 rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/30">
-          <Boxes className="w-6 h-6" />
+      <div className="p-4 sm:p-5 flex items-center justify-between border-b border-slate-200 dark:border-slate-800">
+        <div className="flex items-center gap-3">
+          <div className="p-2.5 rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/30">
+            <Boxes className="w-5 h-5 sm:w-6 sm:h-6" />
+          </div>
+          <div>
+            <h1 className="font-bold text-sm sm:text-base text-slate-900 dark:text-slate-100 leading-tight">MINI ERP + CRM</h1>
+            <span className="text-[10px] uppercase tracking-wider font-semibold text-blue-500 block">Enterprise Portal</span>
+          </div>
         </div>
-        <div>
-          <h1 className="font-bold text-base text-slate-900 dark:text-slate-100 leading-tight">MINI ERP + CRM</h1>
-          <span className="text-[10px] uppercase tracking-wider font-semibold text-blue-500">Enterprise Portal</span>
-        </div>
+
+        {/* Mobile Close Button */}
+        <button 
+          onClick={onCloseMobile}
+          className="lg:hidden p-1.5 rounded-xl text-slate-400 hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+        >
+          <X className="w-5 h-5" />
+        </button>
       </div>
 
       {/* Navigation List */}
@@ -56,6 +67,7 @@ export const Sidebar = () => {
             <NavLink
               key={link.path}
               to={link.path}
+              onClick={onCloseMobile}
               className={({ isActive }) =>
                 `flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
                   isActive
@@ -78,9 +90,33 @@ export const Sidebar = () => {
             <p className="text-xs font-bold text-slate-900 dark:text-slate-100 truncate">{user?.name}</p>
             <p className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">{user?.role}</p>
           </div>
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0 ml-2" />
         </div>
       </div>
-    </aside>
+    </div>
+  );
+
+  return (
+    <>
+      {/* Desktop Fixed Sidebar */}
+      <aside className="hidden lg:block h-screen sticky top-0 shrink-0 z-30">
+        {sidebarContent}
+      </aside>
+
+      {/* Mobile Backdrop Overlay & Drawer */}
+      {isMobileOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden flex">
+          {/* Backdrop Blur */}
+          <div 
+            className="fixed inset-0 bg-slate-950/70 backdrop-blur-sm transition-opacity" 
+            onClick={onCloseMobile}
+          />
+          {/* Drawer Panel */}
+          <div className="relative z-10 h-full max-w-xs w-full animate-slideInLeft">
+            {sidebarContent}
+          </div>
+        </div>
+      )}
+    </>
   );
 };

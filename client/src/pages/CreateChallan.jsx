@@ -226,15 +226,15 @@ export const CreateChallan = () => {
 
           {/* Financial Summary */}
           <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col items-end space-y-1 text-sm">
-            <div className="flex justify-between w-64 text-xs text-slate-400">
+            <div className="flex justify-between w-full sm:w-64 text-xs text-slate-400">
               <span>Subtotal:</span>
               <span className="font-mono font-bold text-slate-900 dark:text-slate-100">₹{subTotal.toFixed(2)}</span>
             </div>
-            <div className="flex justify-between w-64 text-xs text-slate-400">
+            <div className="flex justify-between w-full sm:w-64 text-xs text-slate-400">
               <span>GST Tax:</span>
               <span className="font-mono font-bold text-slate-900 dark:text-slate-100">₹{taxAmount.toFixed(2)}</span>
             </div>
-            <div className="flex justify-between w-64 text-xs text-slate-400 items-center py-1">
+            <div className="flex justify-between w-full sm:w-64 text-xs text-slate-400 items-center py-1">
               <span>Discount (₹):</span>
               <input
                 type="number"
@@ -243,7 +243,7 @@ export const CreateChallan = () => {
                 className="w-24 bg-slate-100 dark:bg-[#0B0F19] border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-0.5 text-xs text-right font-mono"
               />
             </div>
-            <div className="flex justify-between w-64 text-base font-bold text-blue-500 pt-2 border-t border-slate-200 dark:border-slate-800">
+            <div className="flex justify-between w-full sm:w-64 text-base font-bold text-blue-500 pt-2 border-t border-slate-200 dark:border-slate-800">
               <span>Grand Total:</span>
               <span className="font-mono">₹{grandTotal.toFixed(2)}</span>
             </div>
