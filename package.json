@@ -1,0 +1,12 @@
+{
+  "name": "mini-erp-crm",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:client": "npm --prefix frontend run dev",
+    "dev:server": "npm --prefix backend run dev"
+  }
+}

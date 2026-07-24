@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1D4ED8"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+
+    <!-- Subtle Inner Reflection Glow -->
+    <radialGradient id="innerGlow" cx="50%" cy="15%" r="75%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Isometric Face Shading Gradients -->
+    <linearGradient id="topFace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#EEF2FF" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="leftFace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0E7FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#C7D2FE" stop-opacity="0.65"/>
+    </linearGradient>
+    <linearGradient id="rightFace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C7D2FE" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#A5B4FC" stop-opacity="0.45"/>
+    </linearGradient>
+
+    <!-- Soft Drop Shadow under icon mesh -->
+    <filter id="meshShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#0F172A" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Squircle Rounded Background Badge -->
+  <rect x="16" y="16" width="480" height="480" rx="140" fill="url(#bgGrad)"/>
+  <rect x="16" y="16" width="480" height="480" rx="140" fill="url(#innerGlow)"/>
+  <rect x="16" y="16" width="480" height="480" rx="140" fill="none" stroke="#60A5FA" stroke-width="4" stroke-opacity="0.4"/>
+
+  <!-- 3D Isometric 3-Cube Mesh Group -->
+  <g filter="url(#meshShadow)" stroke="#FFFFFF" stroke-width="16" stroke-linejoin="round" stroke-linecap="round">
+    
+    <!-- TOP CUBE -->
+    <g id="top-cube">
+      <!-- Top Face -->
+      <path d="M 256 90 L 344 140 L 256 190 L 168 140 Z" fill="url(#topFace)"/>
+      <!-- Left Face -->
+      <path d="M 168 140 L 256 190 L 256 290 L 168 240 Z" fill="url(#leftFace)"/>
+      <!-- Right Face -->
+      <path d="M 256 190 L 344 140 L 344 240 L 256 290 Z" fill="url(#rightFace)"/>
+    </g>
+
+    <!-- BOTTOM-LEFT CUBE -->
+    <g id="bottom-left-cube">
+      <!-- Top Face -->
+      <path d="M 168 240 L 256 290 L 168 340 L 80 290 Z" fill="url(#topFace)"/>
+      <!-- Left Face -->
+      <path d="M 80 290 L 168 340 L 168 440 L 80 390 Z" fill="url(#leftFace)"/>
+      <!-- Right Face -->
+      <path d="M 168 340 L 256 290 L 256 390 L 168 440 Z" fill="url(#rightFace)"/>
+    </g>
+
+    <!-- BOTTOM-RIGHT CUBE -->
+    <g id="bottom-right-cube">
+      <!-- Top Face -->
+      <path d="M 256 290 L 344 240 L 432 290 L 344 340 Z" fill="url(#topFace)"/>
+      <!-- Left Face -->
+      <path d="M 256 290 L 344 340 L 344 440 L 256 390 Z" fill="url(#leftFace)"/>
+      <!-- Right Face -->
+      <path d="M 344 340 L 432 290 L 432 390 L 344 440 Z" fill="url(#rightFace)"/>
+    </g>
+
+  </g>
+</svg>
