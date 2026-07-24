@@ -47,8 +47,13 @@ const swaggerUiOptions = {
 
 // Security & Optimization Middlewares
 app.use(helmet({ contentSecurityPolicy: false }));
+const rawFrontendUrl = process.env.FRONTEND_URL || 'https://mini-erp.vercel.app,http://localhost:3000';
+const allowedOrigins = rawFrontendUrl.includes(',')
+  ? rawFrontendUrl.split(',').map(u => u.trim())
+  : [rawFrontendUrl, 'https://mini-erp.vercel.app', 'https://frontend-eight-kappa-53.vercel.app', 'http://localhost:3000'];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: allowedOrigins,
   credentials: true,
 }));
 app.use(compression());

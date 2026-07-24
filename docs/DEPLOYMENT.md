@@ -27,7 +27,7 @@
    - `DATABASE_URL=postgresql://...`
    - `JWT_SECRET=your_super_secret_jwt_key`
    - `JWT_REFRESH_SECRET=your_super_secret_refresh_key`
-   - `FRONTEND_URL=https://your-app.vercel.app`
+   - `FRONTEND_URL=https://mini-erp.vercel.app`
    - `CLOUDINARY_CLOUD_NAME=your_cloud_name`
    - `CLOUDINARY_API_KEY=your_api_key`
    - `CLOUDINARY_API_SECRET=your_api_secret`
