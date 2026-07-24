@@ -3,8 +3,7 @@ const path = require('path');
 
 console.log('🔄 Executing Daily Engineering Triage Loop...');
 
-const stateFilePath = path.join(__dirname, '..', 'STATE.md');
-const runLogPath = path.join(__dirname, '..', 'loop-run-log.md');
+const triageLogPath = path.join(__dirname, '..', 'docs', 'TRIAGE.md');
 
 const timestamp = new Date().toISOString();
 const logEntry = `\n---
@@ -12,8 +11,8 @@ const logEntry = `\n---
 - **Timestamp**: ${timestamp}
 - **Trigger**: Automated Daily Triage Script
 - **Result**: PASSED
-- **Summary**: Scanned server and client codebases. Audit logging, JWT auth guards, and stock validation rules intact.
+- **Summary**: Scanned backend and frontend codebases. Audit logging, JWT auth guards, and stock validation rules intact.
 `;
 
-fs.appendFileSync(runLogPath, logEntry);
-console.log('✅ STATE.md and loop-run-log.md updated successfully.');
+fs.appendFileSync(triageLogPath, logEntry);
+console.log('✅ docs/TRIAGE.md updated successfully.');

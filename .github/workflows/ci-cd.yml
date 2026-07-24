@@ -17,11 +17,11 @@ jobs:
           node-version: 20.x
       - name: Install Server Dependencies
         run: |
-          cd server
+          cd backend
           npm ci
       - name: Validate Prisma Schema
         run: |
-          cd server
+          cd backend
           npx prisma validate
 
   frontend-checks:
@@ -34,6 +34,6 @@ jobs:
           node-version: 20.x
       - name: Install Client Dependencies & Build
         run: |
-          cd client
+          cd frontend
           npm ci
           npm run build

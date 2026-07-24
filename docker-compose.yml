@@ -15,7 +15,7 @@ services:
   server:
     build:
       context: .
-      dockerfile: Dockerfile.server
+      dockerfile: Dockerfile.backend
     container_name: erp_crm_server
     restart: always
     ports:
@@ -33,7 +33,7 @@ services:
   client:
     build:
       context: .
-      dockerfile: Dockerfile.client
+      dockerfile: Dockerfile.frontend
     container_name: erp_crm_client
     restart: always
     ports:

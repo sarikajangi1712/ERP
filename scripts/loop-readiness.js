@@ -4,14 +4,15 @@ const path = require('path');
 console.log('🔍 Auditing Loop Readiness Ecosystem...');
 
 const requiredFiles = [
-  'LOOP.md',
-  'STATE.md',
-  'loop-budget.md',
-  'loop-run-log.md',
-  'loop-constraints.md',
-  'server/prisma/schema.prisma',
-  'client/package.json',
-  'server/package.json',
+  'README.md',
+  'docs/PRD.md',
+  'docs/TRD.md',
+  'docs/APP_FLOW.md',
+  'docs/BACKEND_SCHEMA.md',
+  'docs/DEPLOYMENT.md',
+  'backend/prisma/schema.prisma',
+  'frontend/package.json',
+  'backend/package.json',
 ];
 
 let missing = false;
