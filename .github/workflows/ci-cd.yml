@@ -20,6 +20,8 @@ jobs:
           cd backend
           npm ci
       - name: Validate Prisma Schema
+        env:
+          DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/erp_crm_db?schema=public"
         run: |
           cd backend
           npx prisma validate
